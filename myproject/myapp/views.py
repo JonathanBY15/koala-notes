@@ -54,6 +54,7 @@ def logout_view(request):
 @api_view(['GET', 'POST'])
 @permission_classes([IsAuthenticated])
 def note_list_create(request):
+    """List all notes or create a new note."""
     if request.method == 'GET':
         notes = Note.objects.filter(user=request.user)
         serializer = NoteSerializer(notes, many=True)
@@ -69,6 +70,7 @@ def note_list_create(request):
 @api_view(['GET', 'PUT', 'DELETE'])
 @permission_classes([IsAuthenticated])
 def note_detail(request, pk):
+    """Retrieve, update, or delete a note."""
     try:
         note = Note.objects.get(pk=pk, user=request.user)
     except Note.DoesNotExist:
