@@ -9,9 +9,9 @@ from .models import Note
 from .serializers import NoteSerializer
 
 # Create your views here.
-def home_view(request):
-    """Display the homepage."""
-    return render(request, 'home.html')
+# def home_view(request):
+#     """Display the homepage."""
+#     return render(request, 'home.html')
 
 def register_view(request):
     """Register a new user."""
