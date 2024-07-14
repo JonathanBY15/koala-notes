@@ -6,9 +6,10 @@ function App() {
   const [note, setNote] = useState(null);
 
   useEffect(() => {
+    // Fetch note data 1 from the API
     async function fetchNote() {
       try {
-        const response = await fetch('http://localhost:8000/api/notes/1');  // Ensure this endpoint is correct
+        const response = await fetch('/api/notes/1');
         if (response.ok) {
           const data = await response.json();
           setNote(data);
@@ -27,7 +28,9 @@ function App() {
     <div className="App">
       <header className="App-header">
         {note ? <h1>{note.title}</h1> : <p>Loading...</p>}
+        {note ? <p>{note.content}</p> : <p>Loading...</p>}
       </header>
+
     </div>
   );
 }
